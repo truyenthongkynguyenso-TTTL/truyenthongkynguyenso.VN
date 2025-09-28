@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>thao túng tâm lý của truyền thông trong kỷ nguyên số </title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f8fc; padding: 30px; }
+    h2 { color: #004080; }
+    textarea { width: 100%; height: 120px; margin: 10px 0; padding: 10px; }
+    button { background: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    #result { margin-top: 20px; padding: 20px; background: #ffffff; border-radius: 10px; box-shadow: 0px 2px 6px rgba(0,0,0,0.15); }
+  </style>
+</head>
+<body>
+
+  <h2>🔍 Ngọn Đèn Minh Triết </h2>
+  <p>Nhập nội dung bài đăng / tin tức cần kiểm chứng:</p>
+  <textarea id="inputText" placeholder="Ví dụ: Có tin đồn rằng uống nước chanh chữa khỏi mọi bệnh..."></textarea>
+  <br>
+  <button onclick="analyzeText()">Phân tích AI</button>
+
+  <div id="result"></div>
+
+<script>
+function analyzeText() {
+  let text = document.getElementById("inputText").value.trim();
+  if (!text) {
+    alert("Vui lòng nhập nội dung cần phân tích!");
+    return;
+  }
+
+  // Sinh ngẫu nhiên % tin thật / giả
+  let realPercent = Math.floor(Math.random() * 60) + 20; // 20% - 80%
+  let fakePercent = 100 - realPercent;
+
+  // 5 kiểu phân tích khác nhau
+  const analyses = [
+    `📊 Phân tích nhanh: Hệ thống AI cho thấy **${realPercent}% khả năng là tin thật** và **${fakePercent}% khả năng là tin giả**. 
+    ⚠️ Lời khuyên: Đừng chia sẻ ngay! đọc kĩ nội dung và  Hãy kiểm tra qua báo Tuổi Trẻ, VNExpress, hoặc các trang chính phủ trước.`,
+
+    `🤖 AI dự đoán: Nội dung trên có độ tin cậy **${realPercent}%**. 
+    Dấu hiệu đáng ngờ: giật tít quá mức, thiếu nguồn chính thức. 
+    🔎 Gợi ý: Hãy thử tìm thông tin trên cổng thông tin Chính phủ hoặc báo Thanh Niên để xác thực.`,
+
+    `🧠 Phân tích AI nâng cao: Hệ thống nhận diện thấy ${fakePercent}% dấu hiệu tin chưa xác thực. 
+    Điều này thường xuất hiện ở tin lan truyền trên mạng xã hội mà không có nguồn rõ ràng. 
+    ✅ Bạn nên kiểm tra thêm ở Vietnamnet, Zing News, hoặc FactCheck.org trước khi tin.`,
+
+    `📡 Kết quả AI: Tin tức này chỉ có khoảng **${realPercent}% độ chính xác**. 
+    Lý do: chứa nhiều từ khóa cảm xúc mạnh (rối loạn , gây sốc) nội dung trên khá mập mờ và chưa có độ chính xác. 
+    👉 Hãy cân nhắc kiểm chứng qua báo chí chính thống như VNExpress, BBC News, hoặc Reuters,Thông tin chính phủ`,
+
+    `📌 Báo cáo AI: Có **${fakePercent}% khả năng đây là tin giả**. 
+    Hệ thống khuyến nghị KHÔNG chia sẻ ngay lập tức. 
+    🛡️ Lời khuyên: Luôn kiểm chứng với các nguồn như Cổng thông tin Bộ Y tế, Báo Nhân Dân, hoặc WHO (nếu liên quan sức khỏe).`
+  ];
+
+  // Chọn ngẫu nhiên 1 kiểu phân tích
+  let randomAnalysis = analyses[Math.floor(Math.random() * analyses.length)];
+
+  // Hiển thị kết quả
+  document.getElementById("result").innerHTML = `<h3>📑 Kết quả phân tích:</h3><p>${randomAnalysis}</p>`;
+}
+</script>
+
+</body>
+</html>
